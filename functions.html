@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <script src="/app.js" defer></script>
+  <title>Functions</title>
+</head>
+
+<body>
+  <nav class="navbar">
+    <a href="./index.html">
+      <div class="logo"> <img src="./svg/webdev.docs.svg"></div>
+    </a>
+
+
+    <div class="hamburger" id="hamburger">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+
+    <!-- Not implemented -->
+    <div class="x-mark" id="close">
+      <embed src="./svg/x-mark-thin.svg">
+    </div>
+
+    <ul class="links close">
+      <li><a class="link" href="./index.html">Home</a></li>
+      <li><a class="link" href="./technologies.html">Technologies</a></li>
+      <li><a class="link" href="./projects.html">Projects</a></li>
+      <li><a class="link" href="./contact.html">Contact</a></li>
+      <li class="link"><label for="search" class="search-bar-label" id="search"></label>
+        <input type="search" class="search-bar" id="search-bar" placeholder="Search">
+        <button class="search-btn">
+          <svg class="search-icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
+            clip-rule="evenodd">
+            <path
+              d="M15.853 16.56c-1.683 1.517-3.911 2.44-6.353 2.44-5.243 0-9.5-4.257-9.5-9.5s4.257-9.5 9.5-9.5 9.5 4.257 9.5 9.5c0 2.442-.923 4.67-2.44 6.353l7.44 7.44-.707.707-7.44-7.44zm-6.353-15.56c4.691 0 8.5 3.809 8.5 8.5s-3.809 8.5-8.5 8.5-8.5-3.809-8.5-8.5 3.809-8.5 8.5-8.5z" />
+          </svg>
+        </button>
+      </li>
+    </ul>
+  </nav>
+  <main class="container" id="container">
+    <h3 class="heading-3">setTimeout( )</h3>
+    <p class="para">
+      SetTimeout( ) expects you to pass two things into it. First a callback and second a number of milliseconds to
+      delay the function.
+    </p>
+    <div class="code-block">
+      <code>
+        console.log('Hello!')<br>
+        setTimeout(( ) => {<br>console.log('Are you still there?') <br>
+        }, 3000)
+      </code>
+    </div>
+    <p class="para">
+      Before our arrow function, we have a console.log( ) that prints the string <code>'Hello'</code> to the console.
+      The function then runs, waits 3 seconds, and our second console.log is printed
+      <code>'Are you still there?'</code>.
+    </p>
+
+    <h3 class="heading-3">setInterval( )</h3>
+    <p class="para">
+      setInterval( ) is similar to setTimeout( ). It will call a callback every X number of milliseconds.
+    </p>
+    <div class="code-block">
+      <code>
+        setInterval(() => { <br>
+          console.log(Math.random( ))<br>
+        }, 2000)   
+      </code>
+    </div>
+    <p class="para">
+      The above functionwill print a random number to the console every two 2000 milliseconds, because we have set an
+      interval. To stop the program, we can save the function as a variable and run a <code>clearInterval( )</code> and
+      pass in the name of the variable.
+    </p>
+    <div class="code-block">
+      <code>
+        const id = setInterval(() => { <br>
+          console.log(Math.random( )) <br>
+        }, 2000)
+      </code>
+    </div>
+    <p class="code-heading">// output</p>
+    <div class="code-block">
+      <code>
+        0.8155799065531959 <br>
+        0.042167788554137386 <br>
+        0.1133141252213421 <br>
+        0.4790311369150022 <br>
+        clearInterval(id)
+        </code>
+
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="footer-max-width">
+      <a href="./index.html">
+        <div class="logo logo-light"> <img src="./svg/webdev-docs-light.svg"></div>
+      </a>
+      <div class="footer-links-flex">
+        <ul class="footer-links">
+          <li class="footer-link"><a href="./index.html">Home</a></li>
+          <li class="footer-link"><a href="./technologies.html">Technologies</a></li>
+          <li class="footer-link"><a href="./projects.html">Projects</a></li>
+          <li class="footer-link"><a href="./contact.html">Contact</a></li>
+        </ul>
+
+        <ul class="footer-social-links">
+          <li class="footer-social-link"><a href="./contact.html"> <img class="social-logo"
+                src="./svg/iconmonstr-facebook-1.svg" alt="facebook-icon"></a></li>
+          <li class="footer-social-link"><a href="./contact.html"><img class="social-logo"
+                src="./svg/iconmonstr-twitter-1.svg" alt="twitter-icon"></a></li>
+          <li class="footer-social-link"><a href="./contact.html"><img class="social-logo"
+                src="./svg/iconmonstr-instagram-11.svg" alt="insta-icon"></a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

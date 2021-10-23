@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./app.js" defer></script>
+  <title>Arrow Functions</title>
+</head>
+
+<body>
+  <nav class="navbar">
+    <a href="./index.html">
+      <div class="logo"> <img src="./svg/webdev.docs.svg"></div>
+    </a>
+
+
+    <div class="hamburger" id="hamburger">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+
+    <!-- Not implemented -->
+    <div class="x-mark" id="close">
+      <embed src="./svg/x-mark-thin.svg">
+    </div>
+
+    <ul class="links close">
+      <li><a class="link" href="./index.html">Home</a></li>
+      <li><a class="link" href="./technologies.html">Technologies</a></li>
+      <li><a class="link" href="./projects.html">Projects</a></li>
+      <li><a class="link" href="./contact.html">Contact</a></li>
+      <li class="link"><label for="search" class="search-bar-label" id="search"></label>
+        <input type="search" class="search-bar" id="search-bar" placeholder="Search">
+        <button class="search-btn">
+          <svg class="search-icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
+            clip-rule="evenodd">
+            <path
+              d="M15.853 16.56c-1.683 1.517-3.911 2.44-6.353 2.44-5.243 0-9.5-4.257-9.5-9.5s4.257-9.5 9.5-9.5 9.5 4.257 9.5 9.5c0 2.442-.923 4.67-2.44 6.353l7.44 7.44-.707.707-7.44-7.44zm-6.353-15.56c4.691 0 8.5 3.809 8.5 8.5s-3.809 8.5-8.5 8.5-8.5-3.809-8.5-8.5 3.809-8.5 8.5-8.5z" />
+          </svg>
+        </button>
+      </li>
+    </ul>
+  </nav>
+  <main class="container" id="container">
+    <h3 class="heading-3">Arrow Functions</h3>
+    <p class="para">
+      An arrow function is a syntactically compact alternative to a regular function.
+    </p>
+    <p class="code-heading">
+      Some simple arrow functions.
+    </p>
+    <div class="code-block">
+      <code>
+        const square = (x) => {<br><br>return x * x<br>}<br><br>
+      </code>
+    </div>
+    <div class="code-block">
+      <code>
+      const sum = (x, y) => {<br><br>return x + y<br>}
+    </code>
+    </div>
+    <p class="para">
+      As you can see we don't need the compelete function expression that we have previously used, though arrow
+      functions work exactly the same. The required features of an arrow function are <code>()</code> if no argument is
+      passed in, and <code>=></code> the arrow syntax.
+    </p>
+    <p class="para">
+      Lets write a simple arrow function called greet that accepts a single string argument, representing a person's
+      name.
+    </p>
+    <div class="code-block">
+      <code>
+        const greet = (name) => { <br>
+          &nbsp;&nbsp;return `Hey ${name}!`<br>
+        }
+      </code>
+    </div>
+    <p class="code-heading">
+      // output
+    </p>
+    <div class="code-block">
+      <code>
+        greet('Tom') <br>
+        'Hey Tom!'
+      </code>
+    </div>
+    <p class="para">
+      Using a template literal we take the information passed into the <code>name</code> argument through the arrow
+      function, and return a string when it's called.
+    </p>
+    <h3 class="heading-3">Implicit Return</h3>
+    <p class="para">
+      Arrow functions are very compact compared to a typical function expression, but there is a way to make them even
+      more compact. We can take advantage of implicit return. This can only be done with arrow functions. It means that
+      we can leave off the return keyword in certain situations.
+    </p>
+    <p class="para">
+      Below is a normal function, we will adapt it to make it an implicit return function.
+    </p>
+
+    <div class="code-block">
+      <code>
+        const rollDie = () => {<br><br>return Math.floor(Math.random() * 6) + 1<br>}
+      </code>
+    </div>
+    <div class="code-block">
+      <code>
+        const rollDie = () => (<br><br> Math.floor(Math.random() * 6) + 1<br>)
+      </code>
+    </div>
+    <p class="para">
+      We have made some slight changes to the above function. We have lost the return keyword, and substituted our curly
+      braces for brackets. This is the correct syntax for an implicit return.
+    </p>
+    <div class="code-block">
+      <code>
+        const rollDie = () =>  Math.floor(Math.random() * 6) + 1
+      </code>
+    </div>
+    <p class="para">
+      For very short functions we can even get rid of those parenthesis and just have our function displayed on one
+      line. These functions are not necassary to use, but they can make your javaScript code more consise.
+    </p>
+  </main>
+  <footer class="footer">
+    <div class="footer-max-width">
+      <a href="./index.html">
+        <div class="logo logo-light"> <img src="./svg/webdev-docs-light.svg"></div>
+      </a>
+      <div class="footer-links-flex">
+        <ul class="footer-links">
+          <li class="footer-link"><a href="./index.html">Home</a></li>
+          <li class="footer-link"><a href="./technologies.html">Technologies</a></li>
+          <li class="footer-link"><a href="./projects.html">Projects</a></li>
+          <li class="footer-link"><a href="./contact.html">Contact</a></li>
+        </ul>
+
+        <ul class="footer-social-links">
+          <li class="footer-social-link"><a href="./contact.html"> <img class="social-logo"
+                src="./svg/iconmonstr-facebook-1.svg" alt="facebook-icon"></a></li>
+          <li class="footer-social-link"><a href="./contact.html"><img class="social-logo"
+                src="./svg/iconmonstr-twitter-1.svg" alt="twitter-icon"></a></li>
+          <li class="footer-social-link"><a href="./contact.html"><img class="social-logo"
+                src="./svg/iconmonstr-instagram-11.svg" alt="insta-icon"></a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

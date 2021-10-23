@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./app.js" defer></script>
+  <title>Array Methods</title>
+</head>
+<nav class="navbar">
+  <a href="./index.html">
+    <div class="logo"> <img src="./svg/webdev.docs.svg"></div>
+  </a>
+
+
+  <div class="hamburger" id="hamburger">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+
+  <!-- Not implemented -->
+  <div class="x-mark" id="close">
+    <embed src="./svg/x-mark-thin.svg">
+  </div>
+
+  <ul class="links close">
+    <li><a class="link" href="./index.html">Home</a></li>
+    <li><a class="link" href="./technologies.html">Technologies</a></li>
+    <li><a class="link" href="./projects.html">Projects</a></li>
+    <li><a class="link" href="./contact.html">Contact</a></li>
+    <li class="link"><label for="search" class="search-bar-label" id="search"></label>
+      <input type="search" class="search-bar" id="search-bar" placeholder="Search">
+      <button class="search-btn">
+        <svg class="search-icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
+          clip-rule="evenodd">
+          <path
+            d="M15.853 16.56c-1.683 1.517-3.911 2.44-6.353 2.44-5.243 0-9.5-4.257-9.5-9.5s4.257-9.5 9.5-9.5 9.5 4.257 9.5 9.5c0 2.442-.923 4.67-2.44 6.353l7.44 7.44-.707.707-7.44-7.44zm-6.353-15.56c4.691 0 8.5 3.809 8.5 8.5s-3.809 8.5-8.5 8.5-8.5-3.809-8.5-8.5 3.809-8.5 8.5-8.5z" />
+        </svg>
+      </button>
+    </li>
+  </ul>
+</nav>
+
+<body>
+  <main class="container" id="container">
+    <h3 class="heading-3">
+      Array Methods
+    </h3>
+    <p class="para">
+      Array methods accept a function as their argument.
+    </p>
+
+    <h4 class="heading-4">forEach</h4>
+    <p class="para">
+      The for each array method accepts a callback function. It makes one calls the function for every element in the
+      array.
+    </p>
+    <div class="code-block">
+      <code>
+          <span class="code-color">const</span> numbers = [1, 2, 3, 4, 5, 6, ,7 ,8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20] <br> <br>
+          numbers.forEach(function (el) { <br> if  % 2 === 0 {<br>console.log(el) <br> &nbsp;&nbsp; } <br> }
+        </code>
+    </div>
+    <p class="code-heading"> // output</p>
+    <div class="code-block">
+      <code>2, 4, 6, 8, 10, 12, 14, 16, 18, 20</code>
+    </div>
+    <p class="para">
+      Here is a simple movies array. Each movie is an object containing a title and a score. Using javaScript we want
+      to print out a movie name, and it's score.
+    </p>
+    <div class="code-block">
+      <code>const movies = [<br> {<br> &nbsp;&nbsp;&nbsp;title: &nbsp;&nbsp;'Amadeus', <br> &nbsp;&nbsp;&nbsp;score: 99<br>}, <br>{<br> &nbsp;&nbsp;&nbsp;title: &nbsp;&nbsp;'Stand By Me',<br>&nbsp;&nbsp;&nbsp;score: 85<br>}, <br>&nbsp;&nbsp;&nbsp;title: &nbsp;&nbsp;'Parasite',<br>&nbsp;&nbsp;&nbsp;score: 95<br>},<br>&nbsp;&nbsp;&nbsp;title: &nbsp;&nbsp;'Alien',<br>&nbsp;&nbsp;&nbsp;score: 90<br>]</code>
+    </div>
+    <p class="para">To do that we are going to call a function, once per element in this array. We are simply applying
+      a function to the for each method and asking it to call the function.</p>
+    <div class="code-block">
+      <code>movies.forEach(function(movie){<br>console.log(`${movie.title} - ${movie.score}/100)<br>})</code>
+    </div>
+    <p class="code-heading">// output</p>
+    <div class="code-block">
+      <code>
+          Amadeus - 99/100 <br>
+          Stand By Me - 85/100 <br>
+          Parasite - 95/100<br>
+          Alien - 90/100
+        </code>
+    </div>
+
+    <p class="para">These days the foreach method is used less and less now that forOf is avalible, but it is still
+      a useful, and simple array callback method.</p>
+
+    <h4 class="heading-4">Map</h4>
+    <p class="para">
+      The next callback array method we will look at is called map. Map is similar to forEach in the sense that it
+      accepts a callback e.g. a function, and it runs that function once per element in the array. The difference with
+      map is that it then generates a new array using the return value of that callback.<br><br> It's a way of to map
+      an array from one state to another, e.g. we could double every number. <br><br>
+      In the example below we have a text array with some lower case strings, and we call <code>texts.map</code> and
+      pass in a call back function.
+    </p>
+    <div class="code-block">
+      <code>
+          const texts = ['hello', 'friend', 'bye', 'yes'] <br> const caps = texts.map(function (t) { <br><br>return t.toUpperCase()<br>
+          })
+        </code>
+    </div>
+    <p class="code-heading">// output</p>
+    <div class="code-block">
+      <code>
+          texts // ['hello','friend','bye','yes']<br>
+          caps // ['HELLO', 'FRIEND', BYE, 'YES']
+        </code>
+    </div>
+    <p class="para">
+      As you can see the map array callback method took the information from the array and turned in into a new array.
+    </p>
+    <p class="para">
+      Lets take our array of numbers from earlier and lets say we want to double all the numbers.
+    </p>
+    <div class="code-block">
+      <code>
+          const numbers = [1, 2, 3, 4, 5, 6, ,7 ,8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20] <br> <br>const doubles = numbers.map(function(num) { <br> <br>&nbsp;&nbsp;&nbsp;return num * 2 <br> })
+        </code>
+    </div>
+    <p class="para">The function is called on every element in the array. It then puts each number into a new array
+      after the function has doubled the number for us. Map doesn't change the original array in any way, it simply
+      creates a new one along side it.
+    </p>
+    <p class="code-heading">// output</p>
+    <div class="code-block">
+      <code>
+          [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40]
+        </code>
+    </div>
+    <p class="para">Now lets apply the map array callback method to our movies array. We will form an array of just
+      the movie titles using map.</p>
+    <div class="code-block">
+      <code>const movies = [<br> {<br> &nbsp;&nbsp;&nbsp;title: &nbsp;&nbsp;'Amadeus', <br> &nbsp;&nbsp;&nbsp;score: 99<br>}, <br>{<br> &nbsp;&nbsp;&nbsp;title: &nbsp;&nbsp;'Stand By Me',<br>&nbsp;&nbsp;&nbsp;score: 85<br>}, <br>&nbsp;&nbsp;&nbsp;title: &nbsp;&nbsp;'Parasite',<br>&nbsp;&nbsp;&nbsp;score: 95<br>},<br>&nbsp;&nbsp;&nbsp;title: &nbsp;&nbsp;'Alien',<br>&nbsp;&nbsp;&nbsp;score: 90<br>]<br><br>
+        const titles = movies.map(function(movie){<br><br>return movie.title<br>})
+        </code>
+    </div>
+
+    <h3 class="heading-3">
+      filter
+    </h3>
+
+    <p class="para">
+      Filter creates a new array with all elements that pass the test implemented by the provided function.
+    </p>
+
+    <div class="code-block">
+      <code>
+        const numbers = [1, 2, 3, 4, 5, 6, ,7 ,8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20] <br>
+        numbers.filter(n => { <br> 
+          return n === 4 <br>
+        })
+      </code>
+    </div>
+    <p class="para">
+      the above arrow function is a simple example of how filter works. We ask this function to filter through the array
+      and check if any of the numbers are deeply equal to 4. Lets see what happens when we run the function throught our
+      console.
+    </p>
+    <p class="code-heading">// output</p>
+    <div class="code-block">
+      <code>
+        numbers.filter((n) => { <br>
+          return n === 4 <br>
+        }) <br>
+        [4]
+      </code>
+    </div>
+    <p class="para">
+      We see a new array created with the number 4 inside it. The filter( ) method, filtered all the numbers in the
+      array, found a number that n is deeply equal to, and made a new array containing that information.
+    </p>
+  </main>
+  <footer class="footer">
+    <div class="footer-max-width">
+      <a href="./index.html">
+        <div class="logo logo-light"> <img src="./svg/webdev-docs-light.svg"></div>
+      </a>
+      <div class="footer-links-flex">
+        <ul class="footer-links">
+          <li class="footer-link"><a href="./index.html">Home</a></li>
+          <li class="footer-link"><a href="./technologies.html">Technologies</a></li>
+          <li class="footer-link"><a href="./projects.html">Projects</a></li>
+          <li class="footer-link"><a href="./contact.html">Contact</a></li>
+        </ul>
+
+        <ul class="footer-social-links">
+          <li class="footer-social-link"><a href="./contact.html"> <img class="social-logo"
+                src="./svg/iconmonstr-facebook-1.svg" alt="facebook-icon"></a></li>
+          <li class="footer-social-link"><a href="./contact.html"><img class="social-logo"
+                src="./svg/iconmonstr-twitter-1.svg" alt="twitter-icon"></a></li>
+          <li class="footer-social-link"><a href="./contact.html"><img class="social-logo"
+                src="./svg/iconmonstr-instagram-11.svg" alt="insta-icon"></a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

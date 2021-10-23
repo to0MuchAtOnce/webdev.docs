@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./app.js" defer></script>
+  <title>learn JS</title>
+</head>
+
+<body>
+  <nav class="navbar">
+    <a href="./index.html">
+      <div class="logo"> <img src="./svg/webdev.docs.svg"></div>
+    </a>
+
+
+    <div class="hamburger" id="hamburger">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+
+    <!-- Not implemented -->
+    <div class="x-mark" id="close">
+      <embed src="./svg/x-mark-thin.svg">
+    </div>
+
+    <ul class="links close">
+      <li><a class="link" href="./index.html">Home</a></li>
+      <li><a class="link" href="./technologies.html">Technologies</a></li>
+      <li><a class="link" href="./projects.html">Projects</a></li>
+      <li><a class="link" href="./contact.html">Contact</a></li>
+      <li class="link"><label for="search" class="search-bar-label" id="search"></label>
+        <input type="search" class="search-bar" id="search-bar" placeholder="Search">
+        <button class="search-btn">
+          <svg class="search-icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
+            clip-rule="evenodd">
+            <path
+              d="M15.853 16.56c-1.683 1.517-3.911 2.44-6.353 2.44-5.243 0-9.5-4.257-9.5-9.5s4.257-9.5 9.5-9.5 9.5 4.257 9.5 9.5c0 2.442-.923 4.67-2.44 6.353l7.44 7.44-.707.707-7.44-7.44zm-6.353-15.56c4.691 0 8.5 3.809 8.5 8.5s-3.809 8.5-8.5 8.5-8.5-3.809-8.5-8.5 3.809-8.5 8.5-8.5z" />
+          </svg>
+        </button>
+      </li>
+    </ul>
+  </nav>
+  <main class="container" id="container">
+    <h2 class="title">What is javaScript?</h2>
+    <p class="para">
+      JavaScript is well known as a scripting language used for web pages,but this is not all javaScript is. It's also a
+      fully functional compiled programming languages. Many non-browser environments also use javaScript, such as
+      Node.js, Apache CouchDB and Adobe Acrobat.
+    </p>
+    <h3 class="heading-3"> Primitive Types</h3>
+    <p class="para">
+      We are going to start by looking at some of the basic building blocks of javaScript. primitive data types are just
+      one of several data types in javaScript. primitive types consist of:
+    <ul class="list">
+      <li>Number</li>
+      <li>String</li>
+      <li>Boolean</li>
+      <li>Null</li>
+      <li>Undefined</li>
+      <li>Symbol</li>
+      <li>BigInt</li>
+    </ul>
+    </p>
+
+    <p class="para">
+      All of these are types that we can store in javaScript e.g. a title on a youtube video would be stored in a
+      string, or the number of likes a video has would be stored in javaScript as a number.
+    </p>
+
+
+    <h4 class="heading-4">
+      Numbers
+    </h4>
+
+    <p class="para">
+      In javaScript we have 1 number type. We represent every time of number in this type such as decimals/whole
+      numbers.
+    </p>
+
+    <a class="card-link" href="./array-methods.html">
+      <h3 class="heading-4">Array Methods</h3>
+    </a>
+    <p class="para">
+      Array methods accept a function as their argument.
+    </p>
+
+    <a class="card-link" href="./functions.html">
+      <h3 class="heading-4">Functions</h3>
+    </a>
+    <p class="para">
+      A function is a fundemental building block in javaScript. A function is similar to a procedure, something to be
+      carried out. A set of statements that perform a task.
+    </p>
+
+    <a class="card-link" href="./arrow-functions.html">
+      <h3 class="heading-4">Arrow Functions</h3>
+    </a>
+    <p class="para">
+      An arrow function is a syntactically compact alternative to a regular function.
+    </p>
+
+
+  </main>
+  <footer class="footer">
+    <div class="footer-max-width">
+      <a href="./index.html">
+        <div class="logo logo-light"> <img src="./svg/webdev-docs-light.svg"></div>
+      </a>
+      <div class="footer-links-flex">
+        <ul class="footer-links">
+          <li class="footer-link"><a href="./index.html">Home</a></li>
+          <li class="footer-link"><a href="./technologies.html">Technologies</a></li>
+          <li class="footer-link"><a href="./projects.html">Projects</a></li>
+          <li class="footer-link"><a href="./contact.html">Contact</a></li>
+        </ul>
+
+        <ul class="footer-social-links">
+          <li class="footer-social-link"><a href="./contact.html"> <img class="social-logo"
+                src="./svg/iconmonstr-facebook-1.svg" alt="facebook-icon"></a></li>
+          <li class="footer-social-link"><a href="./contact.html"><img class="social-logo"
+                src="./svg/iconmonstr-twitter-1.svg" alt="twitter-icon"></a></li>
+          <li class="footer-social-link"><a href="./contact.html"><img class="social-logo"
+                src="./svg/iconmonstr-instagram-11.svg" alt="insta-icon"></a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
