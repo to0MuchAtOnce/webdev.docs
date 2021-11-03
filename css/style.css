@@ -10,6 +10,7 @@ body {
   font-family: 'Open-sans', sans-serif;
   height: 100vh;
   margin: 0 auto;
+  overflow-x: hidden;
 }
 
 .navbar {
@@ -44,7 +45,7 @@ body {
   color: #000;
   display: flex;
   padding: 0;
-  margin: 0 77px;
+  margin: 0 44px;
   transition: 0.2s ease;
   text-decoration: none;
 }
@@ -64,7 +65,7 @@ body {
 .line {
   background: #868686;
   margin: 10px;
-  width: 34px;
+  width: 30px;
   height: 2px;
 }
 
@@ -76,13 +77,29 @@ body {
 }
 
 .search-bar {
+<<<<<<< HEAD:style.css
   border: none;
   outline: 0;
   box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.2);
+=======
+  border: 0;
+  box-shadow: 5px 2px 8px rgba(168, 168, 168, 0.2);
   border-radius: 4px 0 0 4px;
   padding: 20px;
   width: 100%;
   min-width: 300px;
+  outline: 0;
+}
+
+.search-bar:hover {
+  border: 0;
+  box-shadow: 2px 2px 8px 1px rgba(78, 78, 78, 0.2);
+>>>>>>> eb47139e0e858d61e0f9bf142d53a7eb9f03c862:css/style.css
+  border-radius: 4px 0 0 4px;
+  padding: 20px;
+  width: 100%;
+  min-width: 300px;
+  outline: 0;
 }
 
 .search-bar:focus {
@@ -97,7 +114,7 @@ body {
 
 .search-btn {
   cursor: pointer;
-  box-shadow: 5px 4px 8px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 2px 8px rgba(0, 0, 0, 0.2);
   background: linear-gradient(
     140deg,
     rgba(61, 61, 61, 0.932),
@@ -182,11 +199,19 @@ body {
 .heading-3 {
   font-size: 2rem;
   margin: 3rem;
+  padding: 0 8px;
 }
 
 .heading-4 {
   font-size: 1.3rem;
   margin: 2.5rem 3rem;
+  padding: 0 7px;
+}
+
+.heading-5 {
+  font-size: 1.2rem;
+  margin: 2rem;
+  font-weight: 500;
 }
 
 .cards {
@@ -576,8 +601,8 @@ a {
   }
 
   .line {
-    margin: 9px;
-    width: 34px;
+    margin: 8px;
+    width: 30px;
     height: 2px;
   }
 

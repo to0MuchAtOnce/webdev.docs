@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./style.css">
-  <script src="./app.js" defer></script>
-  <title>Array Methods</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/app.js" defer></script>
+  <title>webdev.docs | Array Methods</title>
 </head>
 <nav class="navbar">
   <a href="./index.html">
@@ -93,7 +93,7 @@
     <p class="para">These days the foreach method is used less and less now that forOf is avalible, but it is still
       a useful, and simple array callback method.</p>
 
-    <h4 class="heading-4">Map</h4>
+    <h4 class="heading-3">Map</h4>
     <p class="para">
       The next callback array method we will look at is called map. Map is similar to forEach in the sense that it
       accepts a callback e.g. a function, and it runs that function once per element in the array. The difference with
@@ -145,7 +145,7 @@
     </div>
 
     <h3 class="heading-3">
-      filter
+      Filter
     </h3>
 
     <p class="para">
@@ -154,7 +154,7 @@
 
     <div class="code-block">
       <code>
-        const numbers = [1, 2, 3, 4, 5, 6, ,7 ,8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20] <br>
+        const numbers = [1, 2, 3, 4, 5, 6, ,7 ,8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20] <br><br>
         numbers.filter(n => { <br> 
           return n === 4 <br>
         })
@@ -169,7 +169,7 @@
     <div class="code-block">
       <code>
         numbers.filter((n) => { <br>
-          return n === 4 <br>
+        &nbsp; return n === 4 <br>
         }) <br>
         [4]
       </code>
@@ -177,6 +177,63 @@
     <p class="para">
       We see a new array created with the number 4 inside it. The filter( ) method, filtered all the numbers in the
       array, found a number that n is deeply equal to, and made a new array containing that information.
+    </p>
+    <div class="code-block">
+      <code>
+        numbers.filter((n) => { <br>
+        &nbsp; return n < 10 <br>
+        })
+      </code>
+    </div>
+    <p class="para">
+      All numbers less than 10 will be taken from the array and put into a new filtered array. This can be really useful
+      when we are trying to filter the highest rated things from our array, or older/newer items.
+    </p>
+    <div class="code-block">
+      <code>const movies = [<br> {<br> &nbsp;&nbsp;&nbsp;title: &nbsp;'Amadeus', <br> &nbsp;&nbsp;&nbsp;score: &nbsp;99,<br>&nbsp;&nbsp;&nbsp;year:&nbsp;&nbsp;&nbsp;1984<br>}, <br>{<br> &nbsp;&nbsp;
+      title: 'sharknado', <br> &nbsp;&nbsp;&nbsp;score: 35,<br>&nbsp;&nbsp; year:&nbsp; 2013<br>}, <br>{<br> &nbsp;&nbsp;
+      title: '13 going on 30', <br> &nbsp;&nbsp;&nbsp;score: 70,<br>&nbsp;&nbsp; year: &nbsp;2004<br>}, <br>{<br> &nbsp;&nbsp;
+      title: 'Stand By Me',<br>&nbsp;&nbsp; score: 85,<br>&nbsp;&nbsp; year:&nbsp;&nbsp;1986<br>},<br>{ 
+       <br> &nbsp;&nbsp;&nbsp;title: &nbsp;'jingle all the way',<br>&nbsp;&nbsp; score: &nbsp;71,<br>&nbsp;&nbsp; year:&nbsp;&nbsp;1996<br>},<br>{
+        <br>&nbsp;&nbsp;&nbsp;title: 'waterworld',<br>&nbsp;&nbsp; score: 62,<br>&nbsp;&nbsp; year:&nbsp;&nbsp;1995<br>},<br>{   
+      <br>&nbsp;&nbsp;&nbsp;title: &nbsp;'Parasite',<br>&nbsp;&nbsp;&nbsp;score: &nbsp;95,<br>&nbsp;&nbsp;&nbsp;year: &nbsp;&nbsp;2019<br>}<br>{
+      <br>&nbsp;&nbsp;&nbsp;title: &nbsp;'notting hill',<br>&nbsp;&nbsp;&nbsp;score: &nbsp;77,<br>&nbsp;&nbsp;&nbsp;year: &nbsp;&nbsp;1999<br>}<br>{
+      <br>&nbsp;&nbsp;&nbsp;title: &nbsp;'Alien',<br>&nbsp;&nbsp;&nbsp;score: &nbsp;&nbsp;90<br>&nbsp;&nbsp;&nbsp;year:<br>}<br>]<br><br>
+        </code>
+    </div>
+    <p class="para">
+      Here is our movies array once again, but this time with some new additions. Lets say we want to get an array with
+      just the higher
+      rated movies.
+    </p>
+    <div class="code-block">
+      <code>
+        const goodMovies = movies.filter(m => return m.score > 80); <br><br>
+        const badMovies = movies.filter(m => return m.score < 70);<br><br>
+        const recentMovies = movies.filter(m => return m.year > 2000);
+      </code>
+    </div>
+    <p class="para">
+      The first function returns all the movies with a rating higher than 80, and the second returns all movies with a
+      rating lower than 70. our third function returns all the recent movies with a year greater than 2000. From these
+      functions, you can see how filter could be useful.
+      <br><br>
+    </p>
+    <div class="heading-5">
+      Combining Methods
+    </div>
+    <p class="para">
+      What will see next is that we often combine methods like map() and filter().
+    </p>
+
+    <div class="code-block">
+      <code>
+        movies.filter(m => m.score > 80).map(m => m.title);
+      </code>
+    </div>
+    <p class="para">
+      The above code combines map() and filter(). First it filters the array for movies with a rating greater than 80,
+      then it maps the array to return the title of each of those movies.
     </p>
   </main>
   <footer class="footer">
