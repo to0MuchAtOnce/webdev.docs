@@ -8,7 +8,6 @@
 
 body {
   font-family: 'Open-sans', sans-serif;
-
   height: 100vh;
   margin: 0 auto;
 }
@@ -17,6 +16,7 @@ body {
   display: flex;
   align-items: center;
   position: relative;
+  width: 100%;
   max-width: 1440px;
   justify-content: space-between;
   padding: 0;
@@ -77,7 +77,18 @@ body {
 
 .search-bar {
   border: none;
+  outline: 0;
   box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px 0 0 4px;
+  padding: 20px;
+  width: 100%;
+  min-width: 300px;
+}
+
+.search-bar:focus {
+  border: none;
+  outline: 0;
+  box-shadow: 2px 2px 8px 8px rgba(17, 124, 224, 0.5);
   border-radius: 4px 0 0 4px;
   padding: 20px;
   width: 100%;
@@ -145,7 +156,7 @@ body {
 .sub-heading:after {
   position: absolute;
   content: '';
-  max-width: 1200px;
+  max-width: 1440px;
   width: 100%;
   height: 2px;
   top: 150%;
@@ -179,13 +190,12 @@ body {
 }
 
 .cards {
-  padding: 20px;
   margin: 40px 0;
 }
 
 .card {
-  padding: 20px;
-  margin: 40px 0;
+  padding: 2rem;
+  margin: 20px 0;
 }
 
 .card-link {
@@ -208,6 +218,7 @@ body {
 }
 
 .hero {
+  text-align: center;
   margin: 0 20px;
 }
 
@@ -294,6 +305,52 @@ a {
   position: relative;
   margin: 0 20px;
 }
+@media screen and (max-width: 1600px) {
+  .search-bar {
+    display: none;
+    border: none;
+    box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px 0 0 4px;
+    padding: 20px;
+    width: 100%;
+    min-width: 300px;
+  }
+
+  .search-btn {
+    cursor: pointer;
+    background: 0;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+  }
+
+  .search-btn:hover {
+    cursor: pointer;
+
+    background: none;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+  }
+
+  .search-btn:active {
+    cursor: pointer;
+    background: none;
+    border: none;
+    border-radius: 0;
+    transform: scale(1);
+  }
+
+  .search-icon {
+    fill: #000;
+  }
+
+  .search-icon:hover {
+    fill: #076ee7;
+  }
+}
+
 @media screen and (max-width: 1420px) {
   .link {
     color: #000;
@@ -363,6 +420,20 @@ a {
     background: #fff;
     top: 110%;
     left: -5%;
+  }
+
+  .search-bar {
+    display: block;
+    border: none;
+    box-shadow: 2px 2px 8px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px 0 0 4px;
+    padding: 20px;
+    width: 100%;
+    min-width: 300px;
+  }
+
+  .search-icon {
+    fill: #fff;
   }
 
   /* main */
