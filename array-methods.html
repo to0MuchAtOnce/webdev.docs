@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/utilities.css">
   <script src="/js/app.js" defer></script>
   <title>webdev.docs | Array Methods</title>
 </head>
@@ -93,7 +94,7 @@
     <p class="para">These days the foreach method is used less and less now that forOf is avalible, but it is still
       a useful, and simple array callback method.</p>
 
-    <h4 class="heading-3">Map</h4>
+    <h4 class="heading-4">map( )</h4>
     <p class="para">
       The next callback array method we will look at is called map. Map is similar to forEach in the sense that it
       accepts a callback e.g. a function, and it runs that function once per element in the array. The difference with
@@ -144,9 +145,9 @@
         </code>
     </div>
 
-    <h3 class="heading-3">
-      Filter
-    </h3>
+    <h4 class="heading-4">
+      filter( )
+    </h4>
 
     <p class="para">
       Filter creates a new array with all elements that pass the test implemented by the provided function.
@@ -170,8 +171,8 @@
       <code>
         numbers.filter((n) => { <br>
         &nbsp; return n === 4 <br>
-        }) <br>
-        [4]
+        }) <br><br>
+       // [4]
       </code>
     </div>
     <p class="para">
@@ -219,9 +220,9 @@
       functions, you can see how filter could be useful.
       <br><br>
     </p>
-    <div class="heading-5">
+    <h4 class="heading-4">
       Combining Methods
-    </div>
+    </h4>
     <p class="para">
       What will see next is that we often combine methods like map() and filter().
     </p>
@@ -235,6 +236,272 @@
       The above code combines map() and filter(). First it filters the array for movies with a rating greater than 80,
       then it maps the array to return the title of each of those movies.
     </p>
+
+    <h4 class="heading-4">
+      some( ) & every( )
+    </h4>
+
+    <p class="para">
+      Some and Every are boolean array methods that test if an array is true. 'Every' texts if every item in the array
+      is true, if the answer is yes then the entire every function call returns true.
+      <br><br>
+
+
+      See and Example Below:
+    </p>
+    <h5 class="heading-5">every( )</h5>
+
+    <div class="code-block">
+      <code>
+        const exams = [80, 98, 92, 78, 77, 90, 89, 84, 81, 77];
+        <br><br>
+        &nbsp;&nbsp;exams.every((score) => score >= 75);
+        </code>
+    </div>
+
+    <p class="para">
+      The above example returns 'true' because the callback function checks if every scoe is greater than equal to 75.
+    </p>
+
+    <p class="para">
+      If we change one of the items in the array to a value of less than 75, the whole every( ) returns false.
+    </p>
+
+    <h5 class="heading-5">some( )</h5>
+    <p class="para">
+      Some( ) is very similar to every, the only difference being, it will test if 'some' of the items in the array are
+      greater than 75, this can be just one element, and the callback will return true.
+    </p>
+
+    <div class="code-block">
+      <code>
+        const exams = [60, 98, 71, 54, 22, 10, 39, 64, 72, 70];
+        <br><br>
+        &nbsp;&nbsp;exams.some((score) => score >= 75);
+        </code>
+    </div>
+
+    <p class="para">
+      The above function returns true because there is atleast 1 item that has a greater value than 75.
+    </p>
+
+    <h4 class="heading-4">
+      reduce( )
+    </h4>
+
+    <p class="para">
+      Reduce( ) is one of the most difficult array methods to understand. it's main goal is to take an array and reduce
+      it down to a single value.
+    </p>
+    <h5 class="heading-5">Summing an Array</h5>
+    <div class="code-block">
+      <code>
+        [3, 5, 7, 9, 11].reduce((accumulator, currentValue) => {<br>
+          &nbsp;&nbsp;return accumulator + currentValue;<br>
+        });
+        </code>
+    </div>
+
+    <p class="para">
+      We have to provide what is known as a reducer function. That is just a function that follows a particular format,
+      where we have two parameters. The accumulator variable in the above example will hold the sum of the array, then
+      the currentValue variable represents each individual element in the array. From this function we have returned the
+      accumulator + the current value. Whatever is returned, will be used for the next iterations accumulator.<br><br>
+      The table below demonstrates what our function does in the example.
+    </p>
+
+    <table class="table">
+      <tr>
+        <td class="t-heading">Callback</td>
+        <td class="t-heading">accumulator</td>
+        <td class="t-heading">curentValue</td>
+        <td class="t-heading">return value</td>
+      </tr>
+      <tr>
+        <td class="t-heading">First call</td>
+        <td class="t-nums">3</td>
+        <td class="t-nums">5</td>
+        <td class="t-nums">8</td>
+      </tr>
+      <tr>
+        <td class="t-heading">Second call</td>
+        <td class="t-nums">8</td>
+        <td class="t-nums">7</td>
+        <td class="t-nums">15</td>
+      </tr>
+      <tr>
+        <td class="t-heading">Third call</td>
+        <td class="t-nums">15</td>
+        <td class="t-nums">9</td>
+        <td class="t-nums">24</td>
+      </tr>
+      <tr>
+        <td class="t-heading">Fourth call</td>
+        <td class="t-nums">24</td>
+        <td class="t-nums">11</td>
+        <td class="t-nums">35</td>
+      </tr>
+    </table>
+
+    <p class="para">
+      With each callback you can see what our reduce( ) method does. Our accumulator begins at 3, and our currentValue
+      begins at 5. The returned value is the accumulator and the currentValue added together. Then at the beginning of
+      our next callback, the accumulator starts with the result of our first callback, and it continues on from there,
+      iterating through our array of numbers. <br> <br>
+      Lets take a look at another example.
+    </p>
+
+    <div class="code-block">
+      <code>
+        const prices = [9.99, 1.5, 19.99, 49.99, 30.5];<br><br>
+        &nbsp;&nbsp;let total = 0;<br>
+        &nbsp;&nbsp;for (let price of prices) {<br>
+          &nbsp;&nbsp;total += price;<br>
+        }<br>
+        &nbsp;&nbsp;&nbsp;console.log(total);
+        </code>
+    </div>
+
+    <p class="code-heading">// output</p>
+    <div class="code-block">
+      <code>
+        // 111.97
+        </code>
+    </div>
+
+    <p class="para">
+      Above we have an array of prices. We could get the total of these values quite easily with a for loop like the
+      example shows, but we can also do the same thing with reduce.
+    </p>
+
+    <div class="code-block">
+      <code>
+        const prices = [9.99, 1.5, 19.99, 49.99, 30.5];<br><br>
+        &nbsp;const total = prices.reduce((total, price) => {<br>
+          &nbsp;&nbsp; return total + price;<br>
+        });
+        </code>
+    </div>
+
+    <p class="code-heading">// output</p>
+    <div class="code-block">
+      <code>
+        // 111.97
+        </code>
+    </div>
+
+    <p class="para">
+      As you can see, we get exactly the same result. The reduce method takes in two parameters, a 'total' which
+      represents the added together prices, and a 'price' which represents each individual price in the array. Then the
+      total and price are added together to give us our total.
+    </p>
+
+    <p class="para">
+      We can use reduce to get the minimum price in our array or prices.
+    </p>
+
+    <div class="code-block">
+      <code>
+        const prices = [9.99, 1.5, 19.99, 49.99, 30.5];<br><br>
+        &nbsp;const minPrice = prices.reduce((min, price) => { <br>
+          &nbsp;&nbsp;if (price < min) { <br>
+            &nbsp;&nbsp;return price; <br>
+            &nbsp;} <br>
+            &nbsp;&nbsp;return min;<br>
+        });
+        </code>
+    </div>
+
+    <p class="code-heading">// output</p>
+    <div class="code-block">
+      <code>
+        // 1.5
+      </code>
+    </div>
+
+    <p class="para">
+      We can also get the max price.
+    </p>
+    <div class="code-block">
+      <code>
+        const prices = [9.99, 1.5, 19.99, 49.99, 30.5];<br><br>
+        &nbsp;const minPrice = prices.reduce((max, price) => { <br>
+          &nbsp;&nbsp;if (price < max) { <br>
+            &nbsp;&nbsp;return price; <br>
+            &nbsp;} <br>
+            &nbsp;&nbsp;return max;<br>
+        });
+        </code>
+    </div>
+
+    <p class="code-heading">// output</p>
+    <div class="code-block">
+      <code>
+        // 49.99
+      </code>
+    </div>
+
+    <p class="para">
+      Returning to our movies array from earlier, we want to apply our reduce method to our array to find the highest
+      rated movie.
+    </p>
+
+
+    <div class="code-block">
+      <code>const movies = [<br> {<br> &nbsp;&nbsp;&nbsp;title: &nbsp;'Amadeus', <br> &nbsp;&nbsp;&nbsp;score: &nbsp;99,<br>&nbsp;&nbsp;&nbsp;year:&nbsp;&nbsp;&nbsp;1984<br>}, <br>{<br> &nbsp;&nbsp;
+    title: 'sharknado', <br> &nbsp;&nbsp;&nbsp;score: 35,<br>&nbsp;&nbsp; year:&nbsp; 2013<br>}, <br>{<br> &nbsp;&nbsp;
+    title: '13 going on 30', <br> &nbsp;&nbsp;&nbsp;score: 70,<br>&nbsp;&nbsp; year: &nbsp;2004<br>}, <br>{<br> &nbsp;&nbsp;
+    title: 'Stand By Me',<br>&nbsp;&nbsp; score: 85,<br>&nbsp;&nbsp; year:&nbsp;&nbsp;1986<br>},<br>{ 
+     <br> &nbsp;&nbsp;&nbsp;title: &nbsp;'jingle all the way',<br>&nbsp;&nbsp; score: &nbsp;71,<br>&nbsp;&nbsp; year:&nbsp;&nbsp;1996<br>},<br>{
+      <br>&nbsp;&nbsp;&nbsp;title: 'waterworld',<br>&nbsp;&nbsp; score: 62,<br>&nbsp;&nbsp; year:&nbsp;&nbsp;1995<br>},<br>{   
+    <br>&nbsp;&nbsp;&nbsp;title: &nbsp;'Parasite',<br>&nbsp;&nbsp;&nbsp;score: &nbsp;95,<br>&nbsp;&nbsp;&nbsp;year: &nbsp;&nbsp;2019<br>}<br>{
+    <br>&nbsp;&nbsp;&nbsp;title: &nbsp;'notting hill',<br>&nbsp;&nbsp;&nbsp;score: &nbsp;77,<br>&nbsp;&nbsp;&nbsp;year: &nbsp;&nbsp;1999<br>}<br>{
+    <br>&nbsp;&nbsp;&nbsp;title: &nbsp;'Alien',<br>&nbsp;&nbsp;&nbsp;score: &nbsp;&nbsp;90<br>&nbsp;&nbsp;&nbsp;year:<br>}<br>]<br><br><br>
+
+    const highestRated = movies.reduce((bestMovie, currMovie) => { <br>
+      &nbsp;&nbsp;if (currMovie.score > bestMovie.score) { <br>
+        &nbsp;&nbsp;&nbsp;return currMovie; <br>
+        &nbsp;&nbsp;} <br>
+        &nbsp;&nbsp;return bestMovie; <br>
+    });
+      </code>
+    </div>
+
+    <p class="code-heading">// output</p>
+    <div class="code-block">
+      <code>
+        // {title: "Amedeus", score: 99, year: 1984}
+        </code>
+    </div>
+
+    <p class="para">
+      Our reduce( ) method, returns the highest rated movie.<br><br>
+      As you can see, we can use the reduce( ) method for many different things, not just adding items together.
+    </p>
+
+    <p class="para">
+      We can specify an initial stating point for our accumulator parameter, here is a simple example of that.
+    </p>
+
+    <div class="code-block">
+      <code>
+        const evens = [2, 4, 6, 8]; <br><br>
+        evens.reduce((sum, num) => sum + num, 100)
+        </code>
+    </div>
+
+    <p class="code-heading">// output</p>
+    <div class="code-block">
+      <code>
+        // 120
+        </code>
+    </div>
+
+    <p class="para">
+      We have passed in an extra parameter above that allows our starting value to be '100'. The accumulator then adds
+      onto this value.
+    </p>
+
   </main>
   <footer class="footer">
     <div class="footer-max-width">

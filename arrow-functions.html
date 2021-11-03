@@ -92,7 +92,7 @@
       Using a template literal we take the information passed into the <code>name</code> argument through the arrow
       function, and return a string when it's called.
     </p>
-    <h3 class="heading-3">Implicit Return</h3>
+    <h4 class="heading-4">Implicit Return</h4>
     <p class="para">
       Arrow functions are very compact compared to a typical function expression, but there is a way to make them even
       more compact. We can take advantage of implicit return. This can only be done with arrow functions. It means that
@@ -112,6 +112,7 @@
         const rollDie = () => (<br><br> Math.floor(Math.random() * 6) + 1<br>)
       </code>
     </div>
+
     <p class="para">
       We have made some slight changes to the above function. We have lost the return keyword, and substituted our curly
       braces for brackets. This is the correct syntax for an implicit return.
@@ -121,9 +122,117 @@
         const rollDie = () =>  Math.floor(Math.random() * 6) + 1
       </code>
     </div>
+
     <p class="para">
       For very short functions we can even get rid of those parenthesis and just have our function displayed on one
       line. These functions are not necassary to use, but they can make your javaScript code more consise.
+    </p>
+
+    <h4 class="heading-4">Arrow functions and the 'this' keyword</h4>
+
+    <p class="para">
+      Arrow function behave very differently in terms of the value for the keyword 'this' comapred to a traditional
+      function.
+    </p>
+
+    <div class="code-block">
+      <code>
+        const person = { <br>
+          &nbsp;&nbsp;firstName: 'Viggo', <br>
+          &nbsp;&nbsp;lastName: 'Mortensen', <br>
+          &nbsp;&nbsp;fullName: function () { <br>
+            &nbsp;&nbsp;`${this.firstName} ${this.lastName}`; <br>
+          &nbsp;&nbsp;}, <br>
+        };
+      </code>
+    </div>
+
+    <p class="para">
+      Above we have an object called person with two values inside, a 'firstName' and a 'lastName'. We then run a
+      function on full name to combine both first and last names with string templae literals and the 'this' keyword.
+      See the output below.
+    </p>
+
+    <p class="code-heading">// output</p>
+    <div class="code-block">
+      <code>
+        // 'Viggo Mortensen'
+        </code>
+    </div>
+
+    <p class="para">
+      In this case, the 'this' keyword applies to whatever is to the right of it, hence why we get the combined
+      'fullName' returned. <br><br>
+      Lets see what happens if we use an arrow function with the same logic.
+    </p>
+
+    <div class="code-block">
+      <code>
+        const person = { <br>
+          &nbsp;&nbsp;firstName: 'Viggo', <br>
+          &nbsp;&nbsp;lastName: 'Mortensen', <br>
+          &nbsp;&nbsp;fullName: () => { <br>
+            &nbsp;&nbsp;`${this.firstName} ${this.lastName}`; <br>
+          &nbsp;&nbsp;}, <br>
+        };
+      </code>
+    </div>
+
+
+    <p class="code-heading">// output</p>
+    <div class="code-block">
+      <code>
+        // 'undefined undefined'
+        </code>
+    </div>
+
+    <p class="para">
+      Lets take a look at what is happening here. Inside of an arrow function, the keyword 'this', is just going to
+      refer to the scope that it was created in. That means that in this case, the keyword 'this' refers to the window
+      object. When we use the keyword 'this' in a traditional function, it has nothing to do with the scope of where it
+      was created, it has to do with how the function is executed. This is by design, because at times it can be
+      frustrating having to worry about the execution context and how that impacts the keyword this.
+    </p>
+
+
+    <div class="code-block">
+      <code>
+        const person = { <br>
+          &nbsp;&nbsp;firstName: 'Viggo', <br>
+          &nbsp;&nbsp;lastName: 'Mortensen', <br>
+          &nbsp;&nbsp;fullName: () => { <br>
+            &nbsp;&nbsp;`${this.firstName} ${this.lastName}`; <br>
+          &nbsp;&nbsp;}, <br>
+        shoutName: function() { <br>
+          &nbsp;setTimeout(function () { <br>
+            &nbsp;&nbsp;&nbsp;console.log(this.fullName ()) {<br>
+            &nbsp;&nbsp;&nbsp;}, 3000) <br>
+            &nbsp;&nbsp;} <br>
+    }
+      </code>
+    </div>
+
+    <p class="para">
+      Above we have added a function that will shout the full name after a setTimeout of threee seconds.
+    </p>
+
+    <p class="code-heading">// output</p>
+    <div class="code-block">
+      <code>
+        // 'undefined'<br>
+        Uncaught TypeError: This.fullName is not a Function
+        </code>
+    </div>
+
+    <p class="para">
+      You can see in our output above that the original call of shoutName returned undefined, which we would have
+      expected. Then after we wait three seconds for the setTimeout we get an error message, this is because setTimeout(
+      ) is part of the window object.
+    </p>
+
+    <p class="para">
+      The main point here is that the keyword 'this' reacts differently when it is used in an arrow function, compared
+      to when its used in a regular function.
     </p>
   </main>
   <footer class="footer">

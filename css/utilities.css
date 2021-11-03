@@ -1,0 +1,14 @@
+.table {
+  margin: 2rem 2.5rem;
+}
+
+.t-heading {
+  background: rgb(131, 131, 131);
+  color: #fff;
+  padding: 10px;
+}
+
+.t-nums {
+  background: #eee;
+  text-align: center;
+}
