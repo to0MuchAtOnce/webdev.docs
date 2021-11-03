@@ -1,6 +1,6 @@
 # webdev.docs
 
-A docs website to help me learn technologies you can view the [site] (https://confident-hodgkin-2fca80.netlify.app/) here
+A docs website to help me learn technologies you can view the [site](https://confident-hodgkin-2fca80.netlify.app/) here
 
 # What is it?
 
