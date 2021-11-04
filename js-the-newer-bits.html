@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/app.js" defer></script>
+  <title>webdev.docs</title>
+</head>
+
+<body>
+  <nav class="navbar">
+    <a href="./index.html">
+      <div class="logo"> <img src="./svg/webdev.docs.svg"></div>
+    </a>
+
+
+    <div class="hamburger" id="hamburger">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+
+    <!-- Not implemented -->
+    <div class="x-mark" id="close">
+      <embed src="./svg/x-mark-thin.svg">
+    </div>
+
+    <ul class="links close">
+      <li><a class="link" href="./index.html">Home</a></li>
+      <li><a class="link" href="./technologies.html">Technologies</a></li>
+      <li><a class="link" href="./projects.html">Projects</a></li>
+      <li><a class="link" href="./contact.html">Contact</a></li>
+
+      <li class="link"><label for="search" class="search-bar-label" id="search"></label>
+        <input type="search" class="search-bar" id="search-bar" placeholder="Search">
+        <button class="search-btn">
+          <svg class="search-icon" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
+            clip-rule="evenodd">
+            <path
+              d="M15.853 16.56c-1.683 1.517-3.911 2.44-6.353 2.44-5.243 0-9.5-4.257-9.5-9.5s4.257-9.5 9.5-9.5 9.5 4.257 9.5 9.5c0 2.442-.923 4.67-2.44 6.353l7.44 7.44-.707.707-7.44-7.44zm-6.353-15.56c4.691 0 8.5 3.809 8.5 8.5s-3.809 8.5-8.5 8.5-8.5-3.809-8.5-8.5 3.809-8.5 8.5-8.5z" />
+          </svg>
+        </button>
+      </li>
+    </ul>
+  </nav>
+  <main class="container" id="container">
+    <h3 class="heading-3">
+      JS - The newer bits
+    </h3>
+
+    <p class="para">
+      Here we are going to look at some of the more recent changes in javaScript. These things are more about
+      syntactical changes, easier ways of doing things that we could already do it javaScript. It's important to know
+      these things as you will likely come across them along your journey.
+    </p>
+
+    <h4 class="heading-4">Default Params</h4>
+
+    <p class="para">
+      Default params (default parameters) are often encountered in javaScript. Lets say we have a function, sometimes
+      the params we pass in are optional. If these params are not filled; we would like to give them a default value.
+    </p>
+
+    <div class="code-block">
+      <code>
+        function rollDie(numSides) { <br>
+          return Math.floor(Math.random() * numSides) + 1; <br>
+        }
+        </code>
+    </div>
+
+    <p class="para">
+      Here our rollDie function that we've seen before. Tis function takes in a number of sides and returns a random
+      number multiplied by the number of sides the die has, plus 1.
+    </p>
+    <p class="para">
+      If we call roleDie in the console and give it a number, we will get a number returned to us within the parameters.
+    </p>
+
+    <p class="code-heading"> // output</p>
+    <div class="code-block">
+      <code>rollDie(5)<br>
+        // 4
+      </code>
+    </div>
+
+    <p class="para">
+      We asked the function to give us a number between 1 and 5, we got 4. But what happens if the user doesn't pass in
+      the params?
+    </p>
+  </main>
+
+  <p class="code-heading"> // output</p>
+  <div class="code-block">
+    <code>rollDie()<br>
+        // NaN
+      </code>
+  </div>
+
+  <p class="para">
+    We get NaN returned to us, because this parameter is undefined.<br><br> The old way of getting around this problem
+    is
+    like
+    this.
+  </p>
+
+  <h4 class="heading-4">The Old Way</h4>
+
+  <div class="code-block">
+    <code>function rollDie(numSides) { <br>
+     &nbsp;&nbsp;if (numSides === undefined) { <br>
+      &nbsp;&nbsp;numSides = 6;<br>
+      &nbsp;&nbsp;}<br>
+      &nbsp;&nbsp;return Math.floor(Math.random() * numSides) + 1;<br>
+    }
+    
+      </code>
+  </div>
+
+  <p class="para">
+    Now if we call rollDie in our console we get this.
+  </p>
+
+
+  <div class="code-block">
+    <code>rollDie( )<br>
+        2 <br>
+        rollDie( )<br>
+        5 <br>
+        rollDie( )<br>
+        3 <br>
+        rollDie( )<br>
+        4 <br>
+      </code>
+  </div>
+
+
+  <p class="para">
+    A random die role between 1 and 6 without passing in the parameter, because we've checked within the function if the
+    numSides is undefined and passed in a default param. This way of doing things can be annoying, especially if we have
+    more than one parameter passed in.
+  </p>
+
+  <h4 class="heading-4">The New Way</h4>
+
+  <div class="code-block">
+    <code>function multiply(a, b = 1) {<br>
+      &nbsp;&nbsp;return a * b;<br>
+    }
+      </code>
+  </div>
+
+  <p class="para">
+    In this example, a has no default value, a will be whatever you pass in as the default argument. b on the other
+    hand, does have a default value, if its not defined, it will default to 1. We can rewrite our 'old way' function to
+    use the newer way.
+  </p>
+
+  <div class="code-block">
+    <code>function rollDie(numSides = 6) {<br>
+      &nbsp;&nbsp;return Math.floor(Math.random() * numSides) + 1;<br>
+    }
+      </code>
+  </div>
+
+  <p class="para">
+    We loose a whole if statement and set the default params in a much more concise, readable way.
+  </p>
+
+  <h4 class="heading-4">Multiple Default Params</h4>
+  <p class="para">
+    We can write multiple default params, but the important thing is the order they are written in.
+  </p>
+
+  <div class="code-block">
+    <code>function greet(msg, person) { <br>
+      &nbsp;&nbsp;console.log(`${msg}, ${person}`); <br>
+    }    
+      </code>
+  </div>
+
+  <p class="para">
+    Here we have a function called greet that takes in two params, a message and a person. Whatever message and person
+    we pass in, will be returned to us in the console.
+  </p>
+
+  <div class="code-block">
+    <code>function greet(msg, person) { <br>
+      &nbsp;&nbsp;console.log(`${msg}, ${person}`); <br>
+    }    
+      </code>
+  </div>
+
+  <p class="para">
+    Lets try and pass in a default param and see what happens.
+  </p>
+
+  <div class="code-block">
+    <code>function greet(msg = "Hey there", person) { <br>
+      &nbsp;&nbsp;console.log(`${msg}, ${person}`); <br>
+    }    
+      </code>
+  </div>
+
+  <p class="code-heading"> // output</p>
+  <div class="code-block">
+    <code>
+      greet("Tom"); <br>
+      // Tom undefined
+      </code>
+  </div>
+
+  <p class="para">
+    javascript doesn't know that we are passing in a person here. It's simply going from the order. 'Tom' was the first
+    thing we passed in, so its going to be applied to the first param it finds. In this case, person is left undefined.
+    You should always have your default params come after the first param to prevent problems like this occuring.
+  </p>
+
+  <footer class="footer">
+    <div class="footer-max-width">
+
+      <div class="logo logo-light"><a href="./index.html"> <img src="./svg/webdev-docs-light.svg"></a></div>
+
+      <div class="footer-links-flex">
+        <ul class="footer-links">
+          <li class="footer-link"><a href="./index.html">Home</a></li>
+          <li class="footer-link"><a href="./technologies.html">Technologies</a></li>
+          <li class="footer-link"><a href="./projects.html">Projects</a></li>
+          <li class="footer-link"><a href="./contact.html">Contact</a></li>
+        </ul>
+
+        <ul class="footer-social-links">
+          <li class="footer-social-link"><a href="./contact.html"> <img class="social-logo"
+                src="./svg/iconmonstr-facebook-1.svg" alt="facebook-icon"></a></li>
+          <li class="footer-social-link"><a href="./contact.html"><img class="social-logo"
+                src="./svg/iconmonstr-twitter-1.svg" alt="twitter-icon"></a></li>
+          <li class="footer-social-link"><a href="./contact.html"><img class="social-logo"
+                src="./svg/iconmonstr-instagram-11.svg" alt="insta-icon"></a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
